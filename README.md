@@ -9,7 +9,6 @@
 | first_name         | string | null: false |
 | last_name_reading  | string | null: false |
 | first_name_reading | string | null: false |
-| nickname           | string | null: false |
 | date               | date   | null: false |
 | email              | string | null: false |
 | encrypted_password | string | null: false |
@@ -71,10 +70,10 @@
 
 ## orders テーブル
 
-| Column  | Type       | Options           |
-| ------- | ---------- | ----------------- |
-| user_id | references | foreign_key: true |
-| item_id | references | foreign_key: true |
+| Column | Type       | Options           |
+| ------ | ---------- | ----------------- |
+| user   | references | foreign_key: true |
+| item   | references | foreign_key: true |
 
 ### Association
 
