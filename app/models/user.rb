@@ -8,8 +8,8 @@ class User < ApplicationRecord
     validates :nickname
     validates :last_name,          format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: 'Full-width characters' }
     validates :first_name,         format: { with: /\A[ぁ-んァ-ン一-龥々]/, message: 'Full-width characters' }
-    validates :last_name_reading,  format: { with: /\A[ァ-ン]/, message: 'Full-width katakana characters' }
-    validates :first_name_reading, format: { with: /\A[ァ-ン]/, message: 'Full-width katakana characters' }
+    validates :last_name_reading,  format: { with: /\A[ァ-ヶ一-]/, message: 'Full-width katakana characters' }
+    validates :first_name_reading, format: { with: /\A[ァ-ヶ一-]/, message: 'Full-width katakana characters' }
     validates :date
   end
   validates :password, format: { with: /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i, message: ' Include both letters and numbers' } # 半角英数混合
