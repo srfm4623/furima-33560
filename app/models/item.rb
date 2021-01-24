@@ -5,15 +5,17 @@ class Item < ApplicationRecord
   belongs_to :shipping_cost
   belongs_to :prefecture
   belongs_to :arrival_date
+  belongs_to :user
   has_one_attached :image
 
   with_options presence: true do
     validates :title
     validates :text
     validates :price
+    validates :image
   end
 
-  with_options numericality: { other_than: 1 } do
+  with_options numericality: { other_than: 0 } do
     validates :category_id
     validates :condition_id
     validates :shipping_cost_id

@@ -6,11 +6,6 @@ class ItemsController < ApplicationController
 
   def new
     @item = Item.new
-    @category = Category.all
-    @condition = Condition.all
-    @shipping_cost = Shipping_cost.all
-    @prefecture = Prefecture.all
-    @arrival_date = Arrival_date.all
   end
 
   def create
@@ -25,6 +20,6 @@ class ItemsController < ApplicationController
   private
   
   def item_params
-    params.require(:item).permit(:image,:title,:text,:category_id,:condition_id,:shipping_cost_id,:prefecture_id,:arrival_id)
+    params.require(:item).permit(:image,:title,:text,:category_id,:condition_id,:shipping_cost_id,:prefecture_id,:arrival_date_id,:price).merge(user_id: current_user.id)
   end
 end
