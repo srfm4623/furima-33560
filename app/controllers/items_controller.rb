@@ -2,6 +2,7 @@ class ItemsController < ApplicationController
   before_action :authenticate_user!, except: :index
 
   def index
+    # binding.pry
     @items = Item.all.order("created_at DESC")
   end
 
