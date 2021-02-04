@@ -25,5 +25,6 @@ class Item < ApplicationRecord
   end
 
   validates :price, format: { with: /\A\d{3,7}+\z/, message: 'half-width numbers' }
+
   validates :price, Inclusion: { in: 300..9_999_999, message: 'outside the limits' }
 end

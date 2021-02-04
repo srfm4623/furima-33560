@@ -3,14 +3,14 @@ class OrderingParty
   attr_accessor :user_id, :item_id, :post_number, :prefecture_id, :city, :house_number, :building_name, :phone_number, :order_id, :token
 
   with_options presence: true do
-    validates :token
+    # validates :token
     validates :user_id
     validates :item_id
-    validates :post_number,   format: { with: /\A\d{3}[-]\d{4}\z/, message: 'Input correctly' }
+    validates :post_number,   format: { with: /\A\d{3}[-]\d{4}\z/, message: 'input correctly' }
     validates :prefecture_id, numericality: { other_than: 0, message: 'select' } 
     validates :city
     validates :house_number
-    validates :phone_number,  format: { with: /\A\d{11}\z/, message: 'Input only number' }
+    validates :phone_number,  format: { with: /\A\d{11}\z/, message: 'input only number' }
   end
 
   def save
