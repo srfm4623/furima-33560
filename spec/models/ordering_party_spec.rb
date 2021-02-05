@@ -19,12 +19,12 @@ RSpec.describe OrderingParty, type: :model do
       it 'post_numberが空だと保存できない' do
         @ordering_party.post_number = nil
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include("Post number can't be blank", "Post number input correctly")
+        expect(@ordering_party.errors.full_messages).to include("Post number can't be blank", 'Post number input correctly')
       end
       it 'post_numberにハイフンがないと保存できない' do
         @ordering_party.post_number = '1234567'
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include("Post number input correctly")
+        expect(@ordering_party.errors.full_messages).to include('Post number input correctly')
       end
       it 'prefecture_idを選択しないと保存できない' do
         @ordering_party.prefecture_id = 0
@@ -49,20 +49,18 @@ RSpec.describe OrderingParty, type: :model do
       it 'phone_numberが空だと保存できない' do
         @ordering_party.phone_number = nil
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include("Phone number can't be blank", "Phone number input only number")
+        expect(@ordering_party.errors.full_messages).to include("Phone number can't be blank", 'Phone number input only number')
       end
       it 'phone_numberにハイフンがあると保存できない' do
         @ordering_party.phone_number = '090-1234-5678'
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include("Phone number input only number")
+        expect(@ordering_party.errors.full_messages).to include('Phone number input only number')
       end
       it 'phone_numberは11桁でないと保存できない' do
         @ordering_party.phone_number = '0901234567'
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include("Phone number input only number")
+        expect(@ordering_party.errors.full_messages).to include('Phone number input only number')
       end
-
-
     end
   end
 end
