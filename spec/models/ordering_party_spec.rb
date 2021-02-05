@@ -12,6 +12,9 @@ RSpec.describe OrderingParty, type: :model do
     end
     context '商品購入できないとき' do
       it 'tokenが空だと保存できない' do
+        @ordering_party.token = nil
+        @ordering_party.valid?
+        expect(@ordering_party.errors.full_messages).to include("Token can't be blank")
       end
       it 'post_numberが空だと保存できない' do
         @ordering_party.post_number = nil
