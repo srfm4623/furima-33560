@@ -4,6 +4,7 @@ class ItemsController < ApplicationController
   before_action :seller_identification, only: [:edit, :destroy]
 
   def index
+    # binding.pry
     @items = Item.all.order('created_at DESC')
   end
 

@@ -3,13 +3,10 @@ class OrdersController < ApplicationController
   before_action :seller_identification, only: :index
 
   def index
-    # @item = Item.find(params[:item_id])
     @ordering_party = OrderingParty.new
   end
 
   def create 
-    # @item = Item.find(params[:item_id])
-    # binding.pry
     @ordering_party = OrderingParty.new(ordering_party_params)
     if @ordering_party.valid?
       pay_item
@@ -28,7 +25,6 @@ class OrdersController < ApplicationController
 
 
   def seller_identification
-    # @item = Item.find(params[:item_id])
     redirect_to root_path unless user_signed_in? && current_user != @item.user
   end
 
