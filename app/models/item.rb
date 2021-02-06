@@ -7,6 +7,7 @@ class Item < ApplicationRecord
   belongs_to :arrival_date
   belongs_to :user
   has_one_attached :image
+  has_one :order
 
   with_options presence: true do
     validates :image
@@ -24,5 +25,6 @@ class Item < ApplicationRecord
   end
 
   validates :price, format: { with: /\A\d{3,7}+\z/, message: 'half-width numbers' }
+
   validates :price, Inclusion: { in: 300..9_999_999, message: 'outside the limits' }
 end
