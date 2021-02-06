@@ -1,7 +1,7 @@
 class ItemsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
   before_action :same_params, only: [:show, :edit, :update, :destroy]
-  before_action :seller_identification, only: [:edit, :destroy]
+  before_action :user_guidance, only: [:edit, :destroy]
 
   def index
     @items = Item.all.order('created_at DESC')
@@ -53,7 +53,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
   end
 
-  def seller_identification
-    redirect_to root_path unless current_user == @item.user
+  def user_guidance
+    return redirect_to root_path if current_user != @item.user || @item.order.present?
   end
 end
