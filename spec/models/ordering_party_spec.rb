@@ -76,12 +76,12 @@ RSpec.describe OrderingParty, type: :model do
       it 'user_idがないと保存できない' do
         @user = nil
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include()
+        expect(@ordering_party.errors.full_messages).to include
       end
       it 'item_idがないと保存できない' do
         @item = nil
         @ordering_party.valid?
-        expect(@ordering_party.errors.full_messages).to include()
+        expect(@ordering_party.errors.full_messages).to include
       end
     end
   end

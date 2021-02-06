@@ -24,7 +24,7 @@ class OrdersController < ApplicationController
     @item = Item.find(params[:item_id])
   end
 
-  def user_guidance 
+  def user_guidance
     return redirect_to root_path if current_user == @item.user || @item.order.present?
   end
 
